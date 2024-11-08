@@ -25,6 +25,7 @@ class Listado : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         setSupportActionBar(findViewById(R.id.toolbarlistado))
         personas=intent.getParcelableArrayListExtra<Persona>("personas")!!
         var adapter = PersonaAdaptador(personas)
@@ -37,7 +38,11 @@ class Listado : AppCompatActivity() {
 
 
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        getMenuInflater().inflate(R.menu.volver, menu);
 
+        return true;
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.itemVolver -> {
